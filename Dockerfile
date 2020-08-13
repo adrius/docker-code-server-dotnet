@@ -30,8 +30,7 @@ RUN \
 # 	libsecret-1-dev \
 # 	pkg-config && \
  echo "**** install dotnet-core ****" && \
- wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
- dpkg -i packages-microsoft-prod.deb && \
+ curl -s https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb | dpkg -i && \
  sudo apt-get update; \
  sudo apt-get install -y apt-transport-https && \
  sudo apt-get update && \
