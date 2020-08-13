@@ -47,6 +47,13 @@ RUN \
  yarn --production global add code-server@"$CODE_VERSION" && \
  yarn cache clean && \
  ln -s /node_modules/.bin/code-server /usr/bin/code-server && \
+ echo "**** install dotnet-core ****" && \
+ wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+ dpkg -i packages-microsoft-prod.deb && \
+ sudo apt-get update; \
+ sudo apt-get install -y apt-transport-https && \
+ sudo apt-get update && \
+ sudo apt-get install -y dotnet-sdk-3.1 && \
  echo "**** clean up ****" && \
  apt-get purge --auto-remove -y \
 	build-essential \
